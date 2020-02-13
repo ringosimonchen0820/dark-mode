@@ -9,6 +9,15 @@ import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
+  const [dark, setDark] = useState(true);
+
+  function checkMode(event) {
+    if (event === true) {
+      setDark(true)
+    } else {
+      setDark(false)
+    }
+  }
 
   useEffect(() => {
     axios
@@ -20,8 +29,10 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      <Navbar />
-      <Charts coinData={coinData} />
+      <div className={dark? "dark-mode" : ""}>
+        <Navbar checkMode={checkMode}/>
+        <Charts coinData={coinData} />
+      </div>
     </div>
   );
 };
