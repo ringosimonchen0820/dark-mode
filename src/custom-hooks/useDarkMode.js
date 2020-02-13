@@ -6,7 +6,7 @@ const useDarkMode = function(key) {
 	const [darkMode, setDarkMode] = useLocalStorage('darkMode', key);
 	const body = document.querySelector('body');
 	useEffect(() => {
-		if (darkMode == true) {
+		if (darkMode === true) {
 			body.classList.add('dark-mode');
 		} else {
 			body.classList.remove('dark-mode');
